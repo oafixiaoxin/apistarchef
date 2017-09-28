@@ -32,7 +32,11 @@
 	    public function getShopInfo ( $shopid )
 	    {
 	    	$shopInfo = DB::table('sc_shop')->where('shopid', $shopid)->first();
-	    	$voucherInfo = DB::table('sc_voucher')->where('shopid', $shopid)->get();
+//	    	$voucherInfo = DB::table('sc_voucher')->where('shopid', $shopid)->get();
+			$voucherInfo = DB::select('SELECT ta.*,COUNT(tb.id) AS sold FROM sc_voucher ta 
+LEFT JOIN sc_voucher_usage tb ON ta.id=tb.voucherid
+WHERE 1=1 AND ta.shopid=?
+GROUP BY ta.id', [$shopid]);
 	    	
 	    	$retAry = array();
 	    	$retAry['shopinfo'] = $shopInfo;

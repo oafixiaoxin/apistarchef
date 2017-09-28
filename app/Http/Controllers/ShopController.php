@@ -28,5 +28,17 @@
 	    		return $this->output(Response::NO_MORE_INFO);
 	    	}
 	    }
+	    
+	    public function getShopInfo ( $shopid )
+	    {
+	    	$shopInfo = DB::table('sc_shop')->where('shopid', $shopid)->first();
+	    	$voucherInfo = DB::table('sc_voucher')->where('shopid', $shopid)->get();
+	    	
+	    	$retAry = array();
+	    	$retAry['shopinfo'] = $shopInfo;
+	    	$retAry['voucherinfo'] = $voucherInfo;
+	    	
+	    	return $this->output(Response::SUCCESS, $retAry);
+	    }
 	}
 ?>

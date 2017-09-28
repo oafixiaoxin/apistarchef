@@ -1,5 +1,6 @@
 <?php
-
+	use Illuminate\Http\Request;
+	use Dingo\Api\Routing\Router;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,7 +11,17 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-//1111111111111111111111111111
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+
+//$router->get('/', function () use ($router) {
+//  return $router->app->version();
+//});
+
+
+$app->get('/', function () use ($app) {
+	return 'yanshuxin';
+});
+
+
+$app->group(['prefix' => 'api/v1'], function($app){
+	$app->get('getShopList', 'ShopController@getShopList');
 });

@@ -4,7 +4,7 @@
 	use Illuminate\Http\Request;
 	use App\Response;
 	
-	class ShopController extends Controller
+	class UserController extends Controller
 	{
 	    /**
 	     * Create a new controller instance.

@@ -24,11 +24,7 @@
 	    	$phone = $request->input('phone');
 	    	if ( empty($phone) )
 	    	{
-	    		return $this->output(Response::WRONG_PARAMS);
-	    	}
-	    	else
-	    	{
-	    		return $this->output(Response::SUCCESS);
+	    		return $this->output(Response::SUCCESS, $phone);
 	    	}
 	    }
 	    

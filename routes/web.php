@@ -34,4 +34,5 @@ $app->group(['prefix' => 'api/v1'], function($app){
 	$app->get('getShopInfo/{shopid}', 'ShopController@getShopInfo');
 	
 	$app->post('userLoginByCode', 'UserController@userLoginByCode');
+	$app->post('userLoginByAccount', 'UserController@userLoginByAccount');
 });

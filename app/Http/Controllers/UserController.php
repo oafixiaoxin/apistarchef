@@ -22,10 +22,8 @@
 	    	//号码存在时，直接登录
 	    	//号码不存在时，先进行注册，后登录
 	    	$phone = $request->input('phone');
-	    	if ( empty($phone) )
-	    	{
-	    		return $this->output(Response::SUCCESS, $phone);
-	    	}
+	    	return $this->output(Response::SUCCESS, $phone);
+	    		
 	    }
 	    
 	    public function userLoginByAccount( Request $requset )

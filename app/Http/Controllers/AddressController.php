@@ -36,11 +36,13 @@
 	    	}
 	    	
 	    	$result = DB::table('sc_address')->insertGetId(
-	    		'uid' => $uid,
-	    		'name' => $name,
-	    		'contact' => $contact,
-	    		'address' => $address,
-	    		'mailcode' => $mailcode
+	    		[
+	    			'uid' => $uid,
+	    			'name' => $name,
+	    			'contact' => $contact,
+	    			'address' => $address,
+	    			'mailcode' => $mailcode
+	    		]
 	    	);
 	    	
 	    	if ( !empty($result) )

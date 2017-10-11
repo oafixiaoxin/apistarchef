@@ -21,6 +21,32 @@
 	    	
 	    }
 	    
+	    public function addAddress( Request $request )
+	    {
+	    	$uid = $request->input('uid');
+	    	$name = $request->input('name');
+	    	$contact = $request->input('contact');
+	    	$address = $request->input('address');
+	    	$mailcode = $request->input('mailcode');
+	    	
+	    	$result = DB::table('sc_address')->insertGetId(
+	    		'uid' => $uid,
+	    		'name' => $name,
+	    		'contact' => $contact,
+	    		'address' => $address,
+	    		'mailcode' => $mailcode
+	    	);
+	    	
+	    	if ( !empty($result) )
+	    	{
+	    		return $this->output(Response::SUCCESS);
+	    	}
+	    	else
+	    	{
+	    		return $this->output(Response::WRONG_OPERATION);
+	    	}
+	    }
+	    
 	    public function getProvince()
 	    {
 	    	$province = DB::select('SELECT id,title FROM sc_pro_city_area WHERE 1=1 AND `type`=1 AND `parentid`=0');

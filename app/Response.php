@@ -15,6 +15,7 @@
 		const WRONG_IMG_PATTERN = 10007;
 		const SAVE_IMG_FAILED = 10008;
 		const CHECKOUT_FAILED = 10009;
+		const ADDRESS_LT_5 = 10010;
 		
 		static public function getResponseMsg($code = Response::SUCCESS){
 			switch($code){
@@ -38,8 +39,10 @@
 					return '图片格式错误';
 				case self::SAVE_IMG_FAILED:
 					return '保存图片失败';
-					case self::CHECKOUT_FAILED:
+				case self::CHECKOUT_FAILED:
 					return '结账失败';
+				case self::ADDRESS_LT_5:
+					return '地址超过5条';
 				default:
 					return '未知错误';
 			}

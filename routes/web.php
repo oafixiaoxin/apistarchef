@@ -32,7 +32,11 @@ $app->get('/', function () use ($app) {
 $app->group(['prefix' => 'api/v1'], function($app){
 	$app->get('getShopList', 'ShopController@getShopList');
 	$app->get('getShopInfo/{shopid}', 'ShopController@getShopInfo');
+	$app->get('getProvince', 'AddressController@getProvince');
+	$app->get('getCity/{provinceId}', 'AddressController@getCity');
+	$app->get('getArea/{cityId}', 'AddressController@getArea');
 	
 	$app->post('userLoginByCode', 'UserController@userLoginByCode');
 	$app->post('userLoginByAccount', 'UserController@userLoginByAccount');
+	$app->post('setProCityArea', 'AddressController@setProCityArea');
 });

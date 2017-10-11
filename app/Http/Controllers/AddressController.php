@@ -29,6 +29,12 @@
 	    	$address = $request->input('address');
 	    	$mailcode = $request->input('mailcode');
 	    	
+	    	$lt5 = DB::select('select * from sc_address where 1=1 and `uid`=?', [$uid]);
+	    	if ( count($lt5) >= 5 )
+	    	{
+	    		return $this->output(Response::ADDRESS_LT_5);
+	    	}
+	    	
 	    	$result = DB::table('sc_address')->insertGetId(
 	    		'uid' => $uid,
 	    		'name' => $name,

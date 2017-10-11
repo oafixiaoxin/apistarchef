@@ -39,4 +39,5 @@ $app->group(['prefix' => 'api/v1'], function($app){
 	$app->post('userLoginByCode', 'UserController@userLoginByCode');
 	$app->post('userLoginByAccount', 'UserController@userLoginByAccount');
 	$app->post('setProCityArea', 'AddressController@setProCityArea');
+	$app->post('addAddress', 'AddressController@addAddress');
 });

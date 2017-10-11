@@ -18,7 +18,15 @@
 	    
 	    public function getAddressList( $uid )
 	    {
-	    	
+	    	$result = DB::select('select * from sc_address where 1=1 and `uid`=?', [$uid]);
+	    	if ( count($result) != 0 )
+	    	{
+	    		return $this->output(Response::SUCCESS, $result);
+	    	}
+	    	else
+	    	{
+	    		return $this->output(Response::NO_MORE_INFO);
+	    	}
 	    }
 	    
 	    public function addAddress( Request $request )

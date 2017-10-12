@@ -69,7 +69,7 @@
 	    	$addressid = $request->input('addressid');
 	    	
 	    	$usingAddressId = DB::select('SELECT id FROM sc_address WHERE 1=1 AND uid=? AND isused=1', [$uid]);
-	    	$updateToNormal = DB::select('update sc_address set isused=0 where 1=1 and uid=? and `id`=?', [$uid, $usingAddressId->id]);
+	    	$updateToNormal = DB::select('update sc_address set isused=0 where 1=1 and uid=? and `id`=?', [$uid, $usingAddressId[0]->id]);
 	    	$updateToUsed = DB::select('update sc_address set isused=1 where 1=1 and uid=? and `id`=?', [$uid, $addressid]);
 	    	
 	    	return $this->output(Response::SUCCESS, $updateToUsed);

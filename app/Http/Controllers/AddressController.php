@@ -108,7 +108,14 @@
 	    	$mailcode = $request->input('mailcode');
 	    	
 	    	$result = DB::update('update sc_address set `name`=?,`contact`=?,`address`=?,`mailcode`=? where 1=1 and `id`=? and `uid`=?', [$name, $contact, $address, $mailcode, $addressid, $uid]);
-	    	return $this->output(Response::SUCCESS, $result);
+	    	if ( count($result) > 0 )
+	    	{
+	    		return $this->output(Response::SUCCESS, $result);
+	    	}
+	    	else
+	    	{
+	    		return $this->output(Response::WRONG_OPERATION);
+	    	}
 	    	
 	    }
 	    

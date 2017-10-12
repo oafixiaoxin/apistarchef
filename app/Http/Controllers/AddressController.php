@@ -89,6 +89,12 @@
 			return $this->output(Response::SUCCESS, $addressList);
 	    }
 	    
+	    public function getAddressInfo( $uid, $addressid )
+	    {
+	    	$result = DB::select('select * from sc_address where 1=1 and `uid`=? and `id`=?', [$uid, $addressid]);
+	    	return $this->output(Response::SUCCESS, $result);
+	    }
+	    
 	    public function getProvince()
 	    {
 	    	$province = DB::select('SELECT id,title FROM sc_pro_city_area WHERE 1=1 AND `type`=1 AND `parentid`=0');

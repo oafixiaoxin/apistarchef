@@ -91,7 +91,10 @@
 	    
 	    public function getAddressInfo( $uid, $addressid )
 	    {
-	    	$result = DB::select('select * from sc_address where 1=1 and `uid`=? and `id`=?', [$uid, $addressid]);
+	    	$result = DB::table('sc_address')->where([
+	    		['uid', $uid],
+	    		['id', $addressid],
+	    	])->first();
 	    	return $this->output(Response::SUCCESS, $result);
 	    }
 	    

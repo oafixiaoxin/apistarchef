@@ -42,4 +42,5 @@ $app->group(['prefix' => 'api/v1'], function($app){
 	$app->post('setProCityArea', 'AddressController@setProCityArea');
 	$app->post('addAddress', 'AddressController@addAddress');
 	$app->post('setAddressUsed', 'AddressController@setAddressUsed');
+	$app->post('deleteAddress', 'AddressController@deleteAddress');
 });

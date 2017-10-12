@@ -76,6 +76,18 @@
 	    	
 	    }
 	    
+	    public function deleteAddress( Request $request )
+	    {
+			$uid = $request->input('uid');
+			$addressStr = $request->input('addressStr');
+			$addressid = explode(',', $addressStr);
+			for ( $i = 0 ; $i < count($addressid) ; $i++ )
+			{
+				$deleteOp = DB::delete('DELETE FROM sc_address WHERE 1=1 AND uid=? AND id=?', [$uid, $addressid[$i]]);
+			}
+			return $this->output(Respon::SUCCESS);
+	    }
+	    
 	    public function getProvince()
 	    {
 	    	$province = DB::select('SELECT id,title FROM sc_pro_city_area WHERE 1=1 AND `type`=1 AND `parentid`=0');

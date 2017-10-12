@@ -85,7 +85,8 @@
 			{
 				$deleteOp = DB::delete('DELETE FROM sc_address WHERE 1=1 AND uid=? AND id=?', [$uid, $addressid[$i]]);
 			}
-			return $this->output(Respon::SUCCESS);
+			$addressList = DB::select('select * from sc_address where 1=1 and `uid`=?', [$uid]);
+			return $this->output(Respon::SUCCESS, $addressList);
 	    }
 	    
 	    public function getProvince()

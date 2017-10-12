@@ -95,6 +95,20 @@
 	    	return $this->output(Response::SUCCESS, $result);
 	    }
 	    
+	    public function editAddressInfo ( Request $request )
+	    {
+	    	$uid = $request->input('uid');
+	    	$addressid = $request->input('addressid');
+	    	$name = $request->input('name');
+	    	$contact = $request->input('contact');
+	    	$address = $request->input('address');
+	    	$mailcode = $request->input('mailcode');
+	    	
+	    	$result = DB::update('update sc_address set `name`=?,`contact`=?,`address`=?,`mailcode`=? where 1=1 and `id`=? and `uid`=?', [$name, $contact, $address, $mailcode, $addressid, $uid]);
+	    	return $this->output(Response::SUCCESS, $result);
+	    	
+	    }
+	    
 	    public function getProvince()
 	    {
 	    	$province = DB::select('SELECT id,title FROM sc_pro_city_area WHERE 1=1 AND `type`=1 AND `parentid`=0');

@@ -45,4 +45,5 @@ $app->group(['prefix' => 'api/v1'], function($app){
 	$app->post('setAddressUsed', 'AddressController@setAddressUsed');
 	$app->post('deleteAddress', 'AddressController@deleteAddress');
 	$app->post('editAddressInfo', 'AddressController@editAddressInfo');
+	$app->post('addComment', 'CommentController@addComment');
 });

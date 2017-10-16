@@ -50,6 +50,7 @@
 		    		}
 		 
 		    		$filepath = $this->file_path.date('Ymd',time()).'/'.$image_name;
+		    		return $this->output(Response::SUCCESS, $filepath);
 		    		
 		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
 		    		{
@@ -57,7 +58,6 @@
 		    				'filepath' => date('Ymd',time()).$image_name
 		    			]);
 //		    			$idStr .= $id.',';
-		    			return $this->output(Response::SUCCESS, $id);
 		    		}
 		    		else
 		    		{

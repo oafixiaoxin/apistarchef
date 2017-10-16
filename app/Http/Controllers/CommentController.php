@@ -30,9 +30,6 @@
 	    	$type = $request->input('type');
 	    	$imageAry = $request->input('imageAry');
 	    	
-	    	return $this->output(Response::SUCCESS, $imageAry);
-	    	die;
-	    	
 	    	for ( $i = 0 ; $i < count($imageAry) ; $i++ )
 	    	{
 	    		if ( preg_match('/^(data:\s*image\/(\w+);base64,)/', $imageAry[$i], $result) )

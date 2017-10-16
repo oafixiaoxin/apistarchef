@@ -45,7 +45,7 @@
 		    		}
 		 
 		    		$filepath = $this->file_path.$image_name;
-		    		return $this->output(Response::SUCCESS, $filepath);
+		    		return $this->output(Response::SUCCESS, "yanshuxin");
 		    		
 		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
 		    		{

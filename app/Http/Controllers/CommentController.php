@@ -54,7 +54,7 @@
 		    			$id = DB::table('sc_image')->insertGetId([
 		    				'filename' => $image_name
 		    			]);
-		    			$idStr .= $id.','
+		    			$idStr .= $id.',';
 		    		}
 		    		else
 		    		{

@@ -44,12 +44,12 @@
 		    			$image_name = date('YmdHis').time().'.'.$result[2];
 		    		}
 		 
-		    		$filepath = $this->file_path.'/'.$image_name;
+		    		$filepath = $this->file_path.$image_name;
 		    		
 		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $base64_str))) )
 		    		{
 		    			$id = DB::table('sc_image')->insertGetId([
-		    				'filename' => $image_name
+		    				'filepath' => $image_name
 		    			]);
 		    			$idStr .= $id.',';
 		    		}

@@ -46,7 +46,7 @@
 		 
 		    		$filepath = $this->file_path.$image_name;
 		    		
-		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $base64_str))) )
+		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
 		    		{
 		    			$id = DB::table('sc_image')->insertGetId([
 		    				'filepath' => $image_name

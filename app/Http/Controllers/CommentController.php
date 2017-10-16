@@ -52,26 +52,23 @@
 		    		$filepath = $this->file_path.date('Ymd',time()).'/'.$image_name;
 		    		return $this->output(Response::SUCCESS, $filepath);
 		    		
-		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
-		    		{
-		    			$id = DB::table('sc_image')->insertGetId([
-		    				'filepath' => date('Ymd',time()).$image_name
-		    			]);
-//		    			$idStr .= $id.',';
-		    		}
-		    		else
-		    		{
-		    			
-		    		}
+//		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
+//		    		{
+//		    			$id = DB::table('sc_image')->insertGetId([
+//		    				'filepath' => date('Ymd',time()).$image_name
+//		    			]);
+//		    		}
+//		    		else
+//		    		{
+//		    			
+//		    		}
 	    		}
 	    		else
 	    		{
 	    			
 	    		}
 	    	}
-//	    	return $this->output(Response::SUCCESS, $idStr);
-	    	
-	    	
 	    }
+	    
 	}
 ?>

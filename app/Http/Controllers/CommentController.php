@@ -11,6 +11,9 @@
 	     *
 	     * @return void
 	     */
+	    
+	    private $file_path = '/www/wwwroot/image/upload/';
+	    
 	    public function __construct()
 	    {
 	        //
@@ -24,8 +27,47 @@
 	    	$enviroment = $request->input('enviroment');
 	    	$serve = $request->input('serve');
 	    	$content = $request->input('content');
+	    	$type = $request->input('type');
 	    	$imageAry = $request->input('imageAry');
-	    	return $this->output(Response::SUCCESS, $imageAry);
+	    	
+	    	for ( $i = 0 ; $i < count($imageAry) ; $++ )
+	    	{
+	    		if ( preg_match('/^(data:\s*image\/(\w+);base64,)/', $imageAry[$i], $result) )
+	    		{
+	    			//匹配成功 
+		    		if ( $result[2] == 'jpeg' )
+		    		{
+		    			$image_name = date('YmdHis').time().'.jpg';
+		    		}
+		    		else
+		    		{
+		    			$image_name = date('YmdHis').time().'.'.$result[2];
+		    		}
+		 
+		    		$filepath = $this->file_path.'/'.$image_name;
+		    		
+		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $base64_str))) )
+		    		{
+		    			$id = DB::table('sc_image')->insertGetId([
+		    				'filename' => $image_name
+		    			]);
+		    			$idStr .= $id.','
+		    		}
+		    		else
+		    		{
+		    			return $this->output(Response::WRONG_PARAMS);
+		    			die;
+		    		}
+	    		}
+	    		else
+	    		{
+	    			return $this->output(Response::WRONG_IMG_PATTERN);
+	    			die;
+	    		}
+	    	}
+	    	return $this->output(Response::SUCCESS, $idStr);
+	    	
+	    	
 	    }
 	}
 ?>

@@ -43,17 +43,21 @@
 		    		{
 		    			$image_name = date('YmdHis').time().'.'.$result[2];
 		    		}
+		    		
+		    		if ( !file_exists($this->file_path.date('Ymd',time()).'/') )
+		    		{
+	    				mkdir($this->file_path.date('Ymd',time()).'/', 0700);
+		    		}
 		 
-		    		$filepath = $this->file_path.$image_name;
-		    		return $this->output(Response::SUCCESS, "yanshuxin");
+		    		$filepath = $this->file_path.date('Ymd',time()).'/'.$image_name;
 		    		
 		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
 		    		{
-//		    			$id = DB::table('sc_image')->insertGetId([
-//		    				'filepath' => $image_name
-//		    			]);
+		    			$id = DB::table('sc_image')->insertGetId([
+		    				'filepath' => date('Ymd',time()).$image_name
+		    			]);
 //		    			$idStr .= $id.',';
-		    			return $this->output(Response::SUCCESS, "yanshuxin");
+		    			return $this->output(Response::SUCCESS, $id);
 		    		}
 		    		else
 		    		{

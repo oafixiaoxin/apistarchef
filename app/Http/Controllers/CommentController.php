@@ -48,11 +48,11 @@
 		    		
 		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
 		    		{
-		    			$id = DB::table('sc_image')->insertGetId([
-		    				'filepath' => $image_name
-		    			]);
-		    			$idStr .= $id.',';
-		    			return $this->output(Response::SUCCESS, $idStr);
+//		    			$id = DB::table('sc_image')->insertGetId([
+//		    				'filepath' => $image_name
+//		    			]);
+//		    			$idStr .= $id.',';
+		    			return $this->output(Response::SUCCESS, "yanshuxin");
 		    		}
 		    		else
 		    		{

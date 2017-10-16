@@ -64,7 +64,7 @@
 	    			return $this->output(Response::WRONG_IMG_PATTERN);
 	    		}
 	    	}
-	    	return $this->output(Response::SUCCESS, $idStr);
+//	    	return $this->output(Response::SUCCESS, $idStr);
 	    	
 	    	
 	    }

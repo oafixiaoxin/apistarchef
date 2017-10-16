@@ -44,13 +44,13 @@
 		    			$image_name = date('YmdHis').time().'.'.$result[2];
 		    		}
 		    		
-		    		if ( !file_exists($this->file_path.date('Ymd',time()).'/') )
-		    		{
-	    				mkdir($this->file_path.date('Ymd',time()).'/', 0700);
-		    		}
-		 
-		    		$filepath = $this->file_path.date('Ymd',time()).'/'.$image_name;
-		    		return $this->output(Response::SUCCESS, $filepath);
+//		    		if ( !file_exists($this->file_path.date('Ymd',time()).'/') )
+//		    		{
+//	    				mkdir($this->file_path.date('Ymd',time()).'/', 0700);
+//		    		}
+//		 
+//		    		$filepath = $this->file_path.date('Ymd',time()).'/'.$image_name;
+		    		return $this->output(Response::SUCCESS, $image_name);
 		    		
 //		    		if ( file_put_contents($filepath, base64_decode(str_replace($result[1], '', $imageAry[$i]))) )
 //		    		{

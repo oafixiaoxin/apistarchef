@@ -36,7 +36,7 @@
 LEFT JOIN sc_voucher_usage tb ON ta.id=tb.voucherid
 WHERE 1=1 AND ta.shopid=?
 GROUP BY ta.id', [$shopid]);
-			$commentInfo = DB::select('SELECT ta.*,tb.nickname,tb.`avatar`,tb.star FROM sc_comment ta
+			$commentInfo = DB::select('SELECT ta.*,tb.nickname,IFNULL(tb.`avatar`,"") AS avatar,tb.star FROM sc_comment ta
 LEFT JOIN sc_user tb ON ta.uid=tb.uid
 WHERE 1=1 AND ta.`type`="shop" AND ta.`targetid`="S0001"
 ORDER BY ta.time DESC

@@ -41,7 +41,8 @@
 	    		'taste' => $taste,
 	    		'environment' => $enviroment,
 	    		'service' => $serve,
-	    		'targetid' => $targetid
+	    		'targetid' => $targetid,
+	    		'cost_aver' => $costaver
 	    	]);
 	    	if ( !empty($commentid) )
 	    	{

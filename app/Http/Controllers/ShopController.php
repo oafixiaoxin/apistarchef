@@ -41,7 +41,6 @@ LEFT JOIN sc_user tb ON ta.uid=tb.uid
 WHERE 1=1 AND ta.`type`="shop" AND ta.`targetid`=?
 ORDER BY ta.time DESC
 LIMIT 0,2', [$shopid]);
-//			$isCollect = DB::select('select id from sc_collection where 1=1 and `uid`=? and `targetid`=? and `type`=?', [$uid, $shopid, 'shop']);
 			$isCollect = DB::table('sc_collection')->where([
 				['uid', $uid],
 				['targetid', $shopid],
@@ -50,7 +49,7 @@ LIMIT 0,2', [$shopid]);
 	    	
 	    	$retAry = array();
 	    	$retAry['shopinfo'] = $shopInfo;
-	    	$retAry['isCollect'] = $isCollect;
+	    	$retAry['isCollect'] = $isCollect->id;
 	    	$retAry['voucherinfo'] = $voucherInfo;
 	    	$retAry['commentinfo'] = $commentInfo;
 	    	

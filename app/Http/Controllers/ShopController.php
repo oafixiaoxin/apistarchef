@@ -38,7 +38,7 @@ WHERE 1=1 AND ta.shopid=?
 GROUP BY ta.id', [$shopid]);
 			$commentInfo = DB::select('SELECT ta.*,tb.nickname,IFNULL(tb.`avatar`,"") AS avatar,tb.star FROM sc_comment ta
 LEFT JOIN sc_user tb ON ta.uid=tb.uid
-WHERE 1=1 AND ta.`type`="shop" AND ta.`targetid`="S0001"
+WHERE 1=1 AND ta.`type`="shop" AND ta.`targetid`=?
 ORDER BY ta.time DESC
 LIMIT 0,2', [$shopid]);
 	    	

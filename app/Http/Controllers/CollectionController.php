@@ -38,7 +38,23 @@
 	    	{
 	    		return $this->output(Response::COLLECTION_FAILED);
 	    	}
+	    }
+	    
+	    public function cancelCollection( Request $request )
+	    {
+	    	$uid = $request->input('uid');
+	    	$targetid = $request->input('targetid');
+	    	$type = $request->input('type');
 	    	
+	    	$rows = DB::delete('delete from sc_collection where 1=1 and `uid`=? and `targetid`=? and `type`=?', [$uid, $targetid, 'shop']);
+	    	if ( $rows == 1 )
+	    	{
+	    		return $this->output(Response::SUCCESS);
+	    	}
+	    	else
+	    	{
+	    		return $this->output(Response::WRONG_OPERATION);
+	    	}
 	    }
 	    
 	}

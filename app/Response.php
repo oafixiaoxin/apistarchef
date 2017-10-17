@@ -45,7 +45,7 @@
 				case self::ADDRESS_LT_5:
 					return '地址超过5条';
 				case self::COLLECTION_FAILED:
-					return '地址超过5条';
+					return '收藏失败';
 				default:
 					return '未知错误';
 			}

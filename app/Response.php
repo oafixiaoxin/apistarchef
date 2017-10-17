@@ -16,6 +16,7 @@
 		const SAVE_IMG_FAILED = 10008;
 		const CHECKOUT_FAILED = 10009;
 		const ADDRESS_LT_5 = 10010;
+		const COLLECTION_FAILED = 10011;
 		
 		static public function getResponseMsg($code = Response::SUCCESS){
 			switch($code){
@@ -42,6 +43,8 @@
 				case self::CHECKOUT_FAILED:
 					return '结账失败';
 				case self::ADDRESS_LT_5:
+					return '地址超过5条';
+				case self::COLLECTION_FAILED:
 					return '地址超过5条';
 				default:
 					return '未知错误';

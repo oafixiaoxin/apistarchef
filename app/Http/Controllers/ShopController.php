@@ -49,7 +49,14 @@ LIMIT 0,2', [$shopid]);
 	    	
 	    	$retAry = array();
 	    	$retAry['shopinfo'] = $shopInfo;
-	    	$retAry['isCollect'] = $isCollect->id;
+	    	if ( isset($isCollect->id) )
+	    	{
+	    		$retAry['isCollect'] = $isCollect->id;
+	    	}
+	    	else
+	    	{
+	    		$retAry['isCollect'] = '';
+	    	}
 	    	$retAry['voucherinfo'] = $voucherInfo;
 	    	$retAry['commentinfo'] = $commentInfo;
 	    	

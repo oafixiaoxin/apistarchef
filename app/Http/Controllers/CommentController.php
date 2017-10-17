@@ -31,6 +31,7 @@
 	    	$parentid = $request->input('parentid');
 	    	$imageAry = $request->input('imageAry');
 	    	$targetid = $request->input('targetid');
+	    	$costaver = $request->input('costaver');
 	    	$commentid = DB::table('sc_commit')->insertGetId([
 	    		'uid' => $uid,
 	    		'type' => $type,

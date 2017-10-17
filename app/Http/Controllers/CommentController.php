@@ -44,15 +44,16 @@
 		    			$image_name = date('YmdHis').time().'.'.$result[2];
 		    		}
 		    		
-		    		if ( !file_exists($this->file_path.date('Ymd',time()).'/') )
-		    		{
-		    			return $this->output(Response::SUCCESS, $this->file_path.date('Ymd',time()).'/');
-	    				mkdir($this->file_path.date('Ymd',time()).'/', 0700);
-		    		}
-		    		else
-		    		{
-		    			return $this->output(Response::SUCCESS, "yanshuxin");
-		    		}
+		    		return $this->output(Response::SUCCESS, file_exists($this->file_path.date('Ymd',time()).'/'));
+//		    		if ( !file_exists($this->file_path.date('Ymd',time()).'/') )
+//		    		{
+//		    			return $this->output(Response::SUCCESS, $this->file_path.date('Ymd',time()).'/');
+//	    				mkdir($this->file_path.date('Ymd',time()).'/', 0700);
+//		    		}
+//		    		else
+//		    		{
+//		    			return $this->output(Response::SUCCESS, "yanshuxin");
+//		    		}
 		 
 //		    		$filepath = $this->file_path.$image_name;
 //		    		

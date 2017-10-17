@@ -29,7 +29,7 @@
 	    	}
 	    }
 	    
-	    public function getShopInfo ( $shopid )
+	    public function getShopInfo ( $shopid, $uid )
 	    {
 	    	$shopInfo = DB::table('sc_shop')->where('shopid', $shopid)->first();
 			$voucherInfo = DB::select('SELECT ta.*,COUNT(tb.id) AS sold FROM sc_voucher ta 
@@ -41,9 +41,11 @@ LEFT JOIN sc_user tb ON ta.uid=tb.uid
 WHERE 1=1 AND ta.`type`="shop" AND ta.`targetid`=?
 ORDER BY ta.time DESC
 LIMIT 0,2', [$shopid]);
+			$isCollect = DB::select('select id from sc_collection where 1=1 and `uid`=? and `targetid`=? and `type`=?', [$uid, $shopid, 'shop']);
 	    	
 	    	$retAry = array();
 	    	$retAry['shopinfo'] = $shopInfo;
+	    	$retAry['isCollect'] = $isCollect;
 	    	$retAry['voucherinfo'] = $voucherInfo;
 	    	$retAry['commentinfo'] = $commentInfo;
 	    	

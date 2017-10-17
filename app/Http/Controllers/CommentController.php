@@ -32,7 +32,7 @@
 	    	$imageAry = $request->input('imageAry');
 	    	$targetid = $request->input('targetid');
 	    	$costaver = $request->input('costaver');
-	    	$commentid = DB::table('sc_commit')->insertGetId([
+	    	$commentid = DB::table('sc_comment')->insertGetId([
 	    		'uid' => $uid,
 	    		'type' => $type,
 	    		'time' => time(),

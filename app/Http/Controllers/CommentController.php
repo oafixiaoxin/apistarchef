@@ -12,7 +12,7 @@
 	     * @return void
 	     */
 	    
-	    private $file_path = '/www/wwwroot/image/upload/';
+	    private $file_path = '/www/wwwroot/sc_image/';
 	    
 	    public function __construct()
 	    {

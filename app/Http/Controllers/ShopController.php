@@ -45,7 +45,7 @@ LIMIT 0,2', [$shopid]);
 	    	$retAry = array();
 	    	$retAry['shopinfo'] = $shopInfo;
 	    	$retAry['voucherinfo'] = $voucherInfo;
-	    	$retAry['commeninfo'] = $commentInfo;
+	    	$retAry['commentinfo'] = $commentInfo;
 	    	
 	    	return $this->output(Response::SUCCESS, $retAry);
 	    }

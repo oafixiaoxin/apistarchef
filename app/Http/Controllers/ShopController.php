@@ -41,7 +41,7 @@ LEFT JOIN sc_user tb ON ta.uid=tb.uid
 WHERE 1=1 AND ta.`type`="shop" AND ta.`targetid`=?
 ORDER BY ta.time DESC
 LIMIT 0,2', [$shopid]);
-			if ( $uid != '' )
+			if ( $uid != '1' )
 			{
 				$isCollect = DB::table('sc_collection')->where([
 					['uid', $uid],

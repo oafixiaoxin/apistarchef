@@ -37,6 +37,7 @@ $app->group(['prefix' => 'api/v1'], function($app){
 	$app->get('getArea/{cityId}', 'AddressController@getArea');
 	$app->get('getAddressList/{uid}', 'AddressController@getAddressList');
 	$app->get('getAddressInfo/{uid}/{addressid}', 'AddressController@getAddressInfo');
+	$app->get('getCollection/{uid}/{type}', 'CollectionController@getCollection');
 	
 	$app->post('userLoginByCode', 'UserController@userLoginByCode');
 	$app->post('userLoginByAccount', 'UserController@userLoginByAccount');

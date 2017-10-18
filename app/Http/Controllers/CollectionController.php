@@ -57,5 +57,34 @@
 	    	}
 	    }
 	    
+	    public function getCollection( $uid, $type )
+	    {
+	    	$selectStr = 'SELECT ta.*,tb.* FROM sc_collection ta ';
+	    	if ( $type == 'all' )
+	    	{
+	    		
+	    	}
+	    	else
+	    	{
+	    		if ( $type == 'shop' )
+	    		{
+	    			$leftjoinStr = 'LEFT JOIN sc_shop tb ON ta.`targetid`=tb.shopid ';
+		    	}
+		    	$whereStr = 'WHERE 1=1 AND ta.uid=? AND ta.`type`=? ';
+		    	$orderStr = 'ORDER BY ta.time DESC';
+		    	
+		    	$result = DB::select($selectStr.$leftjoinStr.$whereStr.$orderStr, [$uid, $type]);
+		    	if ( count($result) > 0 )
+		    	{
+		    		return $this->output(Response::SUCCESS, $result);
+		    	}
+		    	else
+		    	{
+		    		return $this->output(Response::NO_MORE_INFO);
+		    	}
+	    	}
+	    	
+	    }
+	    
 	}
 ?>
